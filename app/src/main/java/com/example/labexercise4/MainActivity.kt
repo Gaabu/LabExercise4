@@ -24,11 +24,12 @@ class MainActivity : AppCompatActivity() {
 
         val date = Calendar.getInstance()
         val nYear = date.get(Calendar.YEAR)
-        val nMonth = date.get(Calendar.YEAR)
-        val nDay = date.get(Calendar.YEAR)
+        val nMonth = date.get(Calendar.MONTH)
+        val nDay = date.get(Calendar.DAY_OF_MONTH)
 
         val datePd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{ view, year, month, day ->
-            dobSelected.text = "$day-$month-$year"
+            val cMonth = month +1
+            dobSelected.text = "$day-$cMonth-$year"
             val CalAge = nYear- year
             saving = when(CalAge){
                 in 0..15 -> 0.0
